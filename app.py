@@ -105,18 +105,6 @@ def generate():
 
     return jsonify({"story": story})
 
-@app.route("/audio/<filename>")
-def get_audio(filename):
-    # generated audio files for playback
-    return send_file(os.path.join("tts_output", filename), mimetype="audio/mpeg")
-
-@app.route("/history", methods=["GET"])
-def get_history():
-    #for previous stories for a user
-    user = request.args.get("user", "guest")
-    memory = story_ai.memory.get(user, [])
-    return jsonify({"user": user, "previous_stories": memory})
-
 def test_the_generate_funcn():
     chatbot = StorySparkAI(api_key="AIzaSyDa6OzM2Ln2FjV7Rugxzbp9tUw_4L_fJwg")
     L = []
@@ -127,5 +115,6 @@ def test_the_generate_funcn():
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
     #test_the_generate_funcn()
+
 
 

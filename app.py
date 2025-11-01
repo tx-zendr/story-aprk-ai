@@ -125,6 +125,7 @@ def test_the_generate_funcn():
         L.append(input())
     print(chatbot.generate_story(L[0], L[1], L[2], L[3], L[4]))
 if __name__ == "__main__":
-    #app.run(debug=True, port=5000)
-    test_the_generate_funcn()
+    app.run(debug=True, port=5000)
+    #test_the_generate_funcn()
+
 
